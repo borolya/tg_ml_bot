@@ -7,8 +7,8 @@ import os
 import sys
 logger = logging.getLogger(__name__)
 
-DEFAULT_STYLE_PATH = "photos/style.jpg"
-DEFAULT_CONTENT_PATH = "photos/content.jpg"
+DEFAULT_STYLE_PATH = "photos/default_style.jpg"
+DEFAULT_CONTENT_PATH = "photos/default_content.jpg"
 DEFAULT_EPOCH = 300
 DEFAULT_RESOLUTION = 256
 

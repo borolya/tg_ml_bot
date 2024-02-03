@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 async def main():
     logging.basicConfig(
-        level=logging.INFO,
+        level=logging.DEBUG,
         format='[{asctime}] #{levelname:8} {filename}:'
                '{lineno} - {name} - {message}',
         style='{'

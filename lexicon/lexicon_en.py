@@ -3,7 +3,7 @@ MENU_COMMANDS = {
     '/upload_style': 'Upload an photo to use as a style',
     '/upload_content': 'Upload an photo to use as a content',
     '/default_photos': 'Set the default style and content',
-    '/transfer_style': 'Transfer the style of one photo to another',
+    '/transfer': 'Transfer the style of one photo to another',
     '/set_parameters': "Set the network's parameters",
     '/cancel': 'Cancel the process',
     '/help': 'Get bot help'
@@ -23,13 +23,13 @@ CMD_ANSWER = {
             'with the photo in the next message.\n'
             '/default_photos:\tUse this command to apply default style '
             'and content photos for the transformation.\n'
-            '/transfer_style:\tInitiate the model training process to '
+            '/transfer:\tInitiate the model training process to '
             'transfer the style of one image to another\n'
             '/set_parameters:\tCustomize the number of training epochs and '
             'style resolution. The default values are '
             '300 epochs and medium resolution.\n'
             '/cancel:\tTo terminate the upload_style,\n'
-            'upload_content, or transfer_style '
+            'upload_content, or transfer '
             'simply type this command',
     'set_default_photos': 'The photos above were set as style '
                           'and content, respectively.',
@@ -46,12 +46,12 @@ CMD_ANSWER = {
     'transter_waiting_style': 'Upload the style photo with the '
                               '/upload_content command. Alternatively, '
                               'you can use the /default_photos command.',
-    'starting_transfering': 'The style transfer has begun using the '
+    'starting_transferring': 'The style transfer has begun using the '
                             'style and content photos provided above',
-    'transfering_succses': 'Style transfer is complete!',
-    'transfering_fail': 'The transfer is failing. Try lowering the '
+    'transferring_succses': 'Style transfer is complete!',
+    'transferring_fail': 'The transfer is failing. Try lowering the '
                         'resolution or reducing the number of epochs',
-    'cancel_transfering_succuses': 'The transfer has been terminated.',
+    'cancel_transferring_succuses': 'The transfer has been terminated.',
     'cancel_photo_upload': 'The photo upload has been terminated.'
 }
 

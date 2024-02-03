@@ -59,7 +59,7 @@ async def stop_transfer_style(msg: Message, state: FSMContext):
     await state.clear()
     logger.info(f'Cancel state = {my_state}')
     if my_state == FSMState.transfer_style:
-        await msg.answer(CMD_ANSWER['cancel_transfering_succuses'])
+        await msg.answer(CMD_ANSWER['cancel_transferring_succuses'])
     elif my_state in (FSMState.upload_content, FSMState.upload_style):
         await msg.answer(CMD_ANSWER['cancel_photo_upload'])
 
@@ -134,7 +134,7 @@ async def upload_content(msg: Message, bot: Bot,
         await msg.answer(CMD_ANSWER['upload_content_instruction'])
 
 
-@rt_commands.message(Command(commands='transfer_style'))
+@rt_commands.message(Command(commands='transfer'))
 async def transfer_style(msg: Message, bot: Bot, state: FSMContext):
     id = msg.from_user.id
     if id not in users or (users[id].photos.style is None
@@ -148,7 +148,7 @@ async def transfer_style(msg: Message, bot: Bot, state: FSMContext):
         # Show information about transfering before transfer
         media = [
             InputMediaPhoto(media=users[id].photos.style.bot_img,
-                            caption=CMD_ANSWER['starting_transfering']),
+                            caption=CMD_ANSWER['starting_transferring']),
             InputMediaPhoto(media=users[id].photos.content.bot_img)
         ]
         await msg.answer_media_group(media)
@@ -173,7 +173,9 @@ async def transfer_style(msg: Message, bot: Bot, state: FSMContext):
                 fsm_state=state,
                 last_msg=bot_message
             )
-            await msg.answer(CMD_ANSWER['transfering_succses'])
+            current_state = await state.get_state()
+            if current_state == FSMState.transfer_style:
+                await msg.answer(CMD_ANSWER['transferring_succses'])
         except TelegramServerError:
             logger.error('Exeption in net_transfer_style', exc_info=True)
-            await msg.answer(CMD_ANSWER['transfering_fail'])
+            await msg.answer(CMD_ANSWER['transferring_fail'])

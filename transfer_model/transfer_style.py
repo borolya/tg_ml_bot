@@ -41,9 +41,11 @@ def img_postprocess(img: torch.FloatTensor,
                     size: tuple[int, int] | None = None):
     if not torch.is_tensor(img):
         raise TypeError(f'Wrong {type(img)} type, expected torch.tensor')
+    img = torch.squeeze(img)
     if size is not None:
-        transform = transforms.Resize(size, antialias=True)
-    img = transform(torch.squeeze(img))
+       transform = transforms.Resize(size, antialias=True)
+       img = transform(img)
+
     return img
 
 
@@ -54,9 +56,9 @@ async def send_photo(msg: Message, bot: Bot, chat_id: int,
     buf_photo = tensor_2bufferedfile(photo)
 
     if final:
-        caption = f'Final photo with last epoch={epoch}'
+        caption = f'Final photo with the last epoch={epoch}'
     else:
-        caption = f'transfering in progress, epoch={epoch}'
+        caption = f'Epoch={epoch}'
     msg = await bot.edit_message_media(
         chat_id=chat_id,
         message_id=msg.message_id,
@@ -75,7 +77,7 @@ async def training(input_img: torch.FloatTensor, model: Sequential,
     input_img.requires_grad_(True)
     model.requires_grad_(False)
     model.eval()
-    final = False
+    # current and previous sending epochs
     epoch = [0]
     while epoch[0] < epochs+1:
         # get fsm_state to stop in case of /cancel telegram command
@@ -118,9 +120,9 @@ async def training(input_img: torch.FloatTensor, model: Sequential,
                             f'content_loss={content_score*content_weight}')
             epoch[0] += 1
             return loss
-
+            
         optimizer.step(closure)
-
+        
     with torch.no_grad():
         input_img.clamp_(0, 1)
     return input_img, msg, epoch[0]
