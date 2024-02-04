@@ -3,21 +3,25 @@
 
 Welcome to our project, a Telegram bot designed for style transfer using neural networks. This bot, powered by the [Neural-Style algorithm](https://arxiv.org/abs/1508.06576 'link to article') by Gatys, Ecker, and Bethge, operates on a CPU server and leverages asynchronous programming to handle multiple requests simultaneously. Users can watch their images transform in real-time, with the option to adjust parameters affecting the style change. 
 
+## Bot preview 
+
+Bot handles multiple users and with commands. 
+Upload style and content images or use default ones for quick start.
+Use /transfer to start style transfer; adjust training epochs and resolution via inline keyboard.
+Remember, higher quality takes longer.
+
+<img src="sources/bot.gif" width="400"/>
+
 ## Style Transfer Examples
 
 | Style | Content | Result |
 |-------|---------|--------|
 | <img src="sources/style0.jpg" alt="drawing" width="300"/> | <img src="sources/content0.jpg" alt="drawing" width="300"/> | <img src="sources/result0.jpg" alt="drawing" width="300"/> |
+|   |   |
 | <img src="sources/style1.jpg" alt="drawing" width="300"/> | <img src="sources/content1.jpg" alt="drawing" width="300"/> | <img src="sources/result1.jpg" alt="drawing" width="300"/> |
+|   |   |
 | <img src="sources/style2.jpg" alt="drawing" width="300"/> | <img src="sources/content2.jpg" alt="drawing" width="300"/> | <img src="sources/result2.jpg" alt="drawing" width="300"/> |
 
-## Bot preview 
-
-The bot is designed to efficiently handle interactions with multiple users simultaneously. Basic communication go through the commands. To initiate the style transfer process, users are required to **upload their style and content images**, using the respective commands designated for this purpose. Additionally, for those looking for a quick start, the bot offers the option to utilize **default images**, facilitating an easier and more immediate entry into the experience.
-
-Once the images are uploaded, the bot is ready to begin the style transfer process. With the **/transfer** command, the training process of the image kicks off. Every 20 epochs, users can observe how the content image progressively changes its style. Before the training starts, users have the option to **configure some trainig options**. Via an inline keyboard, users choose how many epochs their image will undergo training for and at what resolution. However, it's important to remember "quality equals time"
-
-<img src="sources/bot.gif" width="400"/>
 
 ## Usage
 
