@@ -1,4 +1,4 @@
-# Telegram bot style_transfer_bot (Проверил Алексей my tg @bor_o)
+# Telegram bot style_transfer_bot
 ## About
 
 Welcome to our project, a Telegram bot designed for style transfer using neural networks. This bot, powered by the [Neural-Style algorithm](https://arxiv.org/abs/1508.06576 'link to article') by Gatys, Ecker, and Bethge, operates on a CPU server and leverages asynchronous programming to handle multiple requests simultaneously. Users can watch their images transform in real-time, with the option to adjust parameters affecting the style change. 
